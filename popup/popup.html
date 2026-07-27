@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>College Helper</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="app-header">
+      <div class="brand">
+        <img src="../icons/icon48.png" alt="" width="22" height="22" />
+        <span>College Helper</span>
+      </div>
+      <button id="reset-btn" class="icon-btn" title="Reset all data">⟲</button>
+    </header>
+
+    <!-- ============ FIRST-RUN SETUP VIEW ============ -->
+    <section id="setup-view" class="view hidden">
+      <p class="setup-intro">
+        Let's get your details saved once. Fill in whatever you have now —
+        you can add more or edit anytime later from "Edit Details".
+      </p>
+      <form id="setup-form"></form>
+      <button id="setup-save-btn" class="primary-btn full-width">Save & Get Started</button>
+    </section>
+
+    <!-- ============ MAIN VIEW ============ -->
+    <section id="main-view" class="view hidden">
+      <div class="toolbar">
+        <input id="search-input" type="text" placeholder="🔍 Search fields... (Ctrl+F)" />
+      </div>
+      <div class="toolbar-actions">
+        <button id="autofill-btn" class="primary-btn" title="Scan this page and fill matching fields">⚡ Autofill this page</button>
+        <button id="edit-btn" class="secondary-btn">✎ Edit Details</button>
+        <button id="add-field-btn" class="secondary-btn">+ Add Field</button>
+      </div>
+      <div id="status-message" class="status-message hidden"></div>
+      <div id="sections-container"></div>
+    </section>
+  </div>
+
+  <!-- ============ MODAL: Edit Details / Add Field ============ -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-title">Edit Details</h2>
+        <button id="modal-close-btn" class="icon-btn">✕</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+      <div class="modal-footer">
+        <button id="modal-cancel-btn" class="secondary-btn">Cancel</button>
+        <button id="modal-save-btn" class="primary-btn">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONFIRM DIALOG (destructive actions) ============ -->
+  <div id="confirm-overlay" class="modal-overlay hidden">
+    <div class="modal small">
+      <p id="confirm-message"></p>
+      <div class="modal-footer">
+        <button id="confirm-cancel-btn" class="secondary-btn">Cancel</button>
+        <button id="confirm-ok-btn" class="danger-btn">Yes, continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/constants.js"></script>
+  <script src="../shared/storage.js"></script>
+  <script src="../shared/utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
